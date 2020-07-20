@@ -1,0 +1,32 @@
+.btn-primary {
+    margin: 20px;
+    float: right;
+}
+.postsList {
+    clear: both;
+}
+.postsLink {
+    float: right;
+}
+.post-image-wrapper {
+    width: 200px;
+    height: 200px;
+    .image {
+        width: 100%;
+        height: auto;
+    }
+}
+.image-slider-wrapper {
+    width: 600px;
+    height: 600px;
+    position: fixed;
+    top: 25%;
+    left: 25%;
+}
+.image-slider {
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    left: 25%;
+    top: 25%;
+}

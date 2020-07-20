@@ -1,0 +1,18 @@
+.user-image-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+    .user-image {
+        width: auto;
+        max-height: 100%;
+        position: absolute;
+        top: -9999px;
+        bottom: -9999px;
+        left: -9999px;
+        right: -9999px;
+        margin: auto;
+    }
+}
