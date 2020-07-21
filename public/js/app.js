@@ -2119,6 +2119,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Slider",
   data: function data() {
@@ -2127,7 +2136,9 @@ __webpack_require__.r(__webpack_exports__);
       timer: null,
       currentIndex: 0,
       clickedImage: "",
-      sliderImages: ""
+      sliderImages: "",
+      sliderType: "",
+      loaded: false
     };
   },
   mounted: function mounted() {
@@ -2142,6 +2153,9 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    onLoaded: function onLoaded() {
+      this.loaded = true;
+    },
     choseActiveImage: function choseActiveImage() {
       var _this2 = this;
 
@@ -2159,9 +2173,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     next: function next() {
       this.currentIndex += 1;
+      this.sliderType = "next";
     },
     prev: function prev() {
       this.currentIndex -= 1;
+      this.sliderType = "prev";
     }
   },
   computed: {
@@ -9368,7 +9384,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".close-icon[data-v-fbdfd6a2] {\n  color: white;\n  font-size: 30px;\n  position: absolute;\n  right: 10px;\n  cursor: pointer;\n  transition: none;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.close-icon[data-v-fbdfd6a2]:hover {\n  color: #cccccc;\n}\n.background[data-v-fbdfd6a2] {\n  width: 100%;\n  height: 100%;\n  background-color: black;\n  opacity: 0.7;\n}\n.image-wrapper-preview[data-v-fbdfd6a2] {\n  width: 600px;\n  height: 600px;\n  position: absolute;\n  margin-top: 15%;\n}\n.image-slider-wrapper[data-v-fbdfd6a2] {\n  width: 100vw;\n  height: 100vw;\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  display: flex;\n  justify-content: center;\n}\n.image-slider[data-v-fbdfd6a2] {\n  width: 600px;\n  height: 600px;\n  position: absolute;\n  left: 25%;\n  top: 25%;\n}\n.image-wrapper[data-v-fbdfd6a2] {\n  width: 600px;\n  height: auto;\n}\n.image-wrapper .image[data-v-fbdfd6a2] {\n  width: 100%;\n  height: auto;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  margin: auto;\n}\n.fade-enter-active[data-v-fbdfd6a2],\n.fade-leave-active[data-v-fbdfd6a2] {\n  transition: all 0.9s ease;\n  overflow: hidden;\n  visibility: visible;\n  position: absolute;\n  width: 100%;\n  opacity: 1;\n}\n.fade-enter[data-v-fbdfd6a2],\n.fade-leave-to[data-v-fbdfd6a2] {\n  visibility: hidden;\n  width: 100%;\n  opacity: 0;\n}\nimg[data-v-fbdfd6a2] {\n  height: 600px;\n  width: 100%;\n}\n.prev[data-v-fbdfd6a2],\n.next[data-v-fbdfd6a2] {\n  cursor: pointer;\n  position: absolute;\n  top: 30%;\n  width: auto;\n  padding: 16px;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n  transition: 0.7s ease;\n  border-radius: 0 4px 4px 0;\n  text-decoration: none;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.next[data-v-fbdfd6a2] {\n  right: 0;\n}\n.prev[data-v-fbdfd6a2] {\n  left: 0;\n}\n.prev[data-v-fbdfd6a2]:hover,\n.next[data-v-fbdfd6a2]:hover {\n  color: #cccccc;\n}", ""]);
+exports.push([module.i, ".close-icon[data-v-fbdfd6a2] {\n  color: white;\n  font-size: 30px;\n  position: absolute;\n  right: 10px;\n  cursor: pointer;\n  transition: none;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  z-index: 20;\n}\n.close-icon[data-v-fbdfd6a2]:hover {\n  color: #cccccc;\n}\n.background[data-v-fbdfd6a2] {\n  width: 100%;\n  height: 100%;\n  background-color: black;\n  opacity: 0.9;\n}\n.image-wrapper-preview[data-v-fbdfd6a2] {\n  width: 600px;\n  height: 600px;\n  position: absolute;\n  margin-top: 15%;\n  overflow: hidden;\n}\n.image-slider-wrapper[data-v-fbdfd6a2] {\n  width: 100vw;\n  height: 100vw;\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  display: flex;\n  justify-content: center;\n}\n.image-slider[data-v-fbdfd6a2] {\n  width: 600px;\n  height: 600px;\n  position: absolute;\n  left: 25%;\n  top: 25%;\n}\n.image-wrapper[data-v-fbdfd6a2] {\n  width: 600px;\n  height: auto;\n}\n.image-wrapper .image[data-v-fbdfd6a2] {\n  width: 100%;\n  height: auto;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  margin: auto;\n}\n.next-enter-active[data-v-fbdfd6a2],\n.next-leave-active[data-v-fbdfd6a2] {\n  transition: all 0.4s ease-in-out;\n}\n.next-enter[data-v-fbdfd6a2] {\n  transform: translateX(-100%);\n}\n.next-enter-to[data-v-fbdfd6a2],\n.next-leave[data-v-fbdfd6a2] {\n  transform: translateX(0%);\n}\n.next-leave-to[data-v-fbdfd6a2] {\n  transform: translateX(100%);\n}\n.prev-enter-active[data-v-fbdfd6a2],\n.prev-leave-active[data-v-fbdfd6a2] {\n  transition: all 0.4s ease-in-out;\n}\n.prev-enter[data-v-fbdfd6a2] {\n  transform: translateX(100%);\n}\n.prev-enter-to[data-v-fbdfd6a2],\n.prev-leave[data-v-fbdfd6a2] {\n  transform: translateX(0%);\n}\n.prev-leave-to[data-v-fbdfd6a2] {\n  transform: translateX(-100%);\n}\nimg[data-v-fbdfd6a2] {\n  height: 600px;\n  width: 100%;\n}\n.prev[data-v-fbdfd6a2],\n.next[data-v-fbdfd6a2] {\n  cursor: pointer;\n  position: absolute;\n  top: 30%;\n  width: auto;\n  padding: 16px;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n  transition: 0.7s ease;\n  border-radius: 0 4px 4px 0;\n  text-decoration: none;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.next[data-v-fbdfd6a2] {\n  right: 0;\n}\n.prev[data-v-fbdfd6a2] {\n  left: 0;\n}\n.prev[data-v-fbdfd6a2]:hover,\n.next[data-v-fbdfd6a2]:hover {\n  color: #cccccc;\n}", ""]);
 
 // exports
 
@@ -38390,6 +38406,7 @@ var render = function() {
                   attrs: { href: "#" },
                   on: {
                     click: function($event) {
+                      $event.preventDefault()
                       ;(_vm.showSlider = false), _vm.resetData()
                     }
                   }
@@ -38399,12 +38416,21 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "transition",
-                { attrs: { name: "fade", tag: "div", mode: "out-in" } },
+                { attrs: { name: _vm.sliderType, mode: "out-in" } },
                 _vm._l([_vm.currentIndex], function(i) {
                   return _c("div", { key: i, staticClass: "image-wrapper" }, [
                     _c("img", {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.loaded,
+                          expression: "loaded"
+                        }
+                      ],
                       staticClass: "image",
-                      attrs: { src: _vm.currentImg.post_image_path }
+                      attrs: { src: _vm.currentImg.post_image_path },
+                      on: { load: _vm.onLoaded }
                     })
                   ])
                 }),
@@ -38416,7 +38442,12 @@ var render = function() {
                 {
                   staticClass: "prev",
                   attrs: { href: "#" },
-                  on: { click: _vm.prev }
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.prev($event)
+                    }
+                  }
                 },
                 [_vm._v("❮ ")]
               ),
@@ -38426,7 +38457,12 @@ var render = function() {
                 {
                   staticClass: "next",
                   attrs: { href: "#" },
-                  on: { click: _vm.next }
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.next($event)
+                    }
+                  }
                 },
                 [_vm._v("❯ ")]
               )
